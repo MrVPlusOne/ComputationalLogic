@@ -51,12 +51,17 @@ class BasicFormulaTests extends FormulaTestSuit {
   }
 
   "parser" should {
-    "restore printed result" in {
-      val style1 = FormulaPrintStyle.textBook
-//      val parser = new FormulaParser(style1)
-//      forAllFormulae(f => {
-//        parser(f.prettyPrint(style1)) == f
-//      })
+    def testStyle(style1: FormulaPrintStyle): Unit = {
+      val parser = new FormulaParser(style1)
+      forAllFormulae(f => {
+        parser(f.prettyPrint(style1)) == f
+      })
+    }
+    "restore printed result in textbook style" in {
+      testStyle(FormulaPrintStyle.textBook)
+    }
+    "restore printed result in programming style" in {
+      testStyle(FormulaPrintStyle.programming)
     }
   }
 }

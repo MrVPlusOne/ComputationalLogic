@@ -12,6 +12,5 @@ object Test {
 //    val p = new FormulaParser(FormulaPrintStyle.textBook)
 //
 //    p.test.parse("(x)")
-    FormulaParser.test.parse("(hi)")
   }
 }
